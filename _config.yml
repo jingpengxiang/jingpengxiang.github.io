@@ -77,6 +77,6 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git 
-  repo: git@github.com:jingpengxiang/jingpengxiang.github.io.git
+  type: git
+  repo: git@github.com:jingpengxiang/axiba.github.io.git
   branch: master 
