@@ -97,13 +97,13 @@
 
 <meta name="description" content="人生苦短及时行乐">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="axiba的小屋">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="axiba的小屋">
 <meta property="og:description" content="人生苦短及时行乐">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="axiba的小屋">
 <meta name="twitter:description" content="人生苦短及时行乐">
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <title>Hexo</title>
+  <title>axiba的小屋</title>
   
 
 
@@ -171,7 +171,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">axiba的小屋</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -238,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/29/我的第一篇文章/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/04/模块/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="axiba">
@@ -247,7 +247,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="axiba的小屋">
     </span>
 
     
@@ -257,7 +257,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/29/我的第一篇文章/" itemprop="url">我的第一篇文章</a></h1>
+                <a class="post-title-link" href="/2017/09/04/模块/" itemprop="url">模块</a></h1>
         
 
         <div class="post-meta">
@@ -269,8 +269,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-29T22:58:22+08:00">
-                2017-08-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-04T11:23:10+08:00">
+                2017-09-04
               </time>
             
 
@@ -309,7 +309,324 @@
       
         
           
+            <p>在计算机程序的开发过程中，随着程序代码越写越多，在一个文件里代码就会越来越长，越来越不容易维护。</p>
+<p>为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少，很多编程语言都采用这种组织代码的方式。在Node环境中，一个.js文件就称之为一个模块（module）。</p>
+<p>使用模块有什么好处？</p>
+<p>最大的好处是大大提高了代码的可维护性。其次，编写代码不必从零开始。当一个模块编写完毕，就可以被其他地方引用。我们在编写程序的时候，也经常引用其他模块，包括Node内置的模块和来自第三方的模块。</p>
+<p>使用模块还可以避免函数名和变量名冲突。相同名字的函数和变量完全可以分别存在不同的模块中，因此，我们自己在编写模块时，不必考虑名字会与其他模块冲突。</p>
+<p>创建一个为<code>hello.js</code>的文件</p>
+<pre><code>&apos;use strict&apos;;
+
+var s = &apos;Hello&apos;;
+
+function greet(name) {
+    console.log(s + &apos;, &apos; + name + &apos;!&apos;);
+}
+function hi(name) {
+    console.log(&apos;Hi,&apos; + name + &apos;!&apos;);
+}
+
+function goodbye(name) {
+    console.log(&apos;Goodbye,&apos; + name + &apos;!&apos;);
+}
+
+module.exports = {
+    greet: greet,
+    hi: hi,
+    goodbye: goodbye
+};
+</code></pre><p>函数<code>greet()</code>是我们在<code>hello</code>模块中定义的，你可能注意到最后一行是一个奇怪的赋值语句，它的意思是，把函数<code>greet</code>作为模块的输出暴露出去，这样其他模块就可以使用<code>greet</code>函数了。</p>
+<p>其次创建一个<code>main.js</code>的类，来调用<code>hello.js</code>模块的函数：<br>    ‘use strict’;<br>    // 引入hello模块:<br>    var greet=require(‘./hello’);</p>
+<pre><code>var s=&apos;jing&apos;;
+
+greet.greet(s);
+greet.hi(s);
+</code></pre><p>引入<code>hello.js</code>模块用Node提供的<code>require</code>函数：</p>
+<pre><code>var greet = require(&apos;./hello&apos;);
+</code></pre><p>最后输出结果为：</p>
+<pre><code>Hello, jing!
+Hi,jing!
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/我的第一篇文章/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="axiba">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="axiba的小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/03/我的第一篇文章/" itemprop="url">Node.js究竟是什么？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
             
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T22:58:22+08:00">
+                2017-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>如果听过Node，或者阅读过一些文章，会有个疑惑：“Node究竟是什么东东？”即便是阅读过Node的主页，还是不太明白Node是什么。下面且听我慢慢道来。</p>
+<h1 id="Node旨意解决什么问题？"><a href="#Node旨意解决什么问题？" class="headerlink" title="Node旨意解决什么问题？"></a>Node旨意解决什么问题？</h1><p>Node公开宣称的目标是提供一种简单的构建可伸缩网络程序的方法。当前的服务器程序有哪些问题？在Java和PHP这类语言，每个连接都会生成一个新的线程，随着访问流量的增长，如果希望支持更多的用户，那么必须增添更多的服务器，这不仅会增加服务器成本，还会造成技术问题，比如用户可能针对每个请求使用不同的服务器，所以会涉及到服务器共享资源。由此可见，目前整个Web应用程序架构的问题是：服务器能够处理的并发连接最大数量。</p>
+<p>Node 解决这个问题的方法是：更改连接到服务器的方式。每个连接发射一个在 Node 引擎的进程中运行的事件，而不是为每个连接生成一个新的 OS 线程（并为其分配一些配套内存）。Node 声称它绝不会死锁，因为它根本不允许使用锁，它不会直接阻塞 I/O 调用。Node 还宣称，运行它的服务器能支持数万个并发连接.</p>
+<h1 id="Node-肯定不是什么？"><a href="#Node-肯定不是什么？" class="headerlink" title="Node 肯定不是什么？"></a>Node 肯定不是什么？</h1><p>没错，Node 是一个服务器程序。但是，基础 Node 产品肯定不 像 Apache 或 Tomcat。本质上，那些服务器 “安装就绪型” 服 务器产品，支持立即部署应用程序。通过这些产品，您可以在一分钟内启动并运行一个服务器。Node 肯定不是这种产品。Apache 能通过添加一个 PHP 模块来允许开发人员创建动态 Web 页，添加一个 SSL 模块来实现安全连接，与此类似，Node 也有模块概念，允许向 Node 内核添加模块。实际上，可供选择的用于 Node 的模块有数百个之多，社区在创建、发布和更新模块方面非常活跃，一天甚至可以处理数十个模块。</p>
+<h1 id="Node-如何工作？"><a href="#Node-如何工作？" class="headerlink" title="Node 如何工作？"></a>Node 如何工作？</h1><p>Node 本身运行 V8 JavaScript。等等，服务器上的 JavaScript？没错，您没有看错。对于只在客户机上使用 JavaScript 的程序员而言，服务器端 JavaScript 可能是一个新概念，但这个概念本身并非遥不可及，因此为何不能在服务器上使用客户机上使用的编程语言？<br>什么是 V8？V8 JavaScript 引擎是 Google 用于其 Chrome 浏览器的底层 JavaScript 引擎。很少有人考虑 JavaScript 在客户机上实际做了些什么？实际上，JavaScript 引擎负责解释并执行代码。Google 使用 V8 创建了一个用 C++ 编写的超快解释器，该解释器拥有另一个独特特征；您可以下载该引擎并将其嵌入任何 应用程序。V8 JavaScript 引擎并不仅限于在一个浏览器中运行。因此，Node 实际上会使用 Google 编写的 V8 JavaScript 引擎，并将其重建为可在服务器上使用。太完美了！</p>
+<h1 id="示例-Node-应用程序"><a href="#示例-Node-应用程序" class="headerlink" title="示例 Node 应用程序"></a>示例 Node 应用程序</h1><pre><code>var http= require(&quot;http&quot;);
+
+http.createServer(function (request,response) {
+// body...
+response.writeHead(200,{&apos;Content-Type&apos;:&apos;text/    plain&apos;});
+
+response.end(&apos;hello world\n&apos;);
+
+}).listen(8888);
+
+console.log(&apos;Server running at http://    127.0.0.1:8888/&apos;);
+</code></pre><h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>Node 完成了它提供高度可伸缩服务器的目标。它使用了 Google 的一个非常快速的 JavaScript 引擎，即 V8 引擎。它使用一个事件驱动设计来保持代码最小且易于阅读。所有这些因素促成了 Node 的理想目标，即编写一个高度可伸缩的解决方案变得比较容易。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/03/Node.js安装及第一个应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="axiba">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="axiba的小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/03/Node.js安装及第一个应用/" itemprop="url">Node.js安装及第一个应用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T00:06:13+08:00">
+                2017-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Node-js-安装配置"><a href="#Node-js-安装配置" class="headerlink" title="Node.js 安装配置"></a>Node.js 安装配置</h1><p>Node.js安装包及源码下载地址为：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a>，可以根据自己不同的平台安装Node.js。</p>
+<p>同时，Node.js的历史版本下载为：<a href="https://nodejs.org/dist/" target="_blank" rel="external">https://nodejs.org/dist/</a>。</p>
+<h2 id="版本测试"><a href="#版本测试" class="headerlink" title="版本测试"></a>版本测试</h2><pre><code>MacPro:blog Jing$ node --version
+v6.3.1
+</code></pre><h1 id="Node-js-创建第一个应用"><a href="#Node-js-创建第一个应用" class="headerlink" title="Node.js 创建第一个应用"></a>Node.js 创建第一个应用</h1><p>如果我们使用PHP来编写后端的代码时，需要Apache 或者 Nginx 的HTTP 服务器，并配上 mod_php5 模块和php-cgi。</p>
+<p>从这个角度看，整个”接收 HTTP 请求并提供 Web 页面”的需求根本不需 要 PHP 来处理。</p>
+<p>不过对 Node.js 来说，概念完全不一样了。使用 Node.js 时，我们不仅仅 在实现一个应用，同时还实现了整个 HTTP 服务器。事实上，我们的 Web 应用以及对应的 Web 服务器基本上是一样的。<br>在我们创建 Node.js 第一个 “Hello, World!” 应用前，让我们先了解下 Node.js 应用是由哪几部分组成的：</p>
+<p>在我们创建 Node.js 第一个 “Hello, World!” 应用前，让我们先了解下 Node.js 应用是由哪几部分组成的：</p>
+<ol>
+<li>引入 required 模块：我们可以使用 require 指令来载入 Node.js 模块。</li>
+<li>创建服务器：服务器可以监听客户端的请求，类似于 Apache 、Nginx 等 HTTP 服务器。</li>
+<li>接收请求与响应请求 服务器很容易创建，客户端可以使用浏览器或终端发送 HTTP 请求，服务器接收请求后返回响应数据。</li>
+</ol>
+<hr>
+<pre><code>var http= require(&quot;http&quot;);
+
+http.createServer(function (request,response) {
+// body...
+response.writeHead(200,{&apos;Content-Type&apos;:&apos;text/    plain&apos;});
+
+response.end(&apos;hello world\n&apos;);
+
+}).listen(8888);
+
+console.log(&apos;Server running at http://    127.0.0.1:8888/&apos;);
+</code></pre>
           
         
       
@@ -366,7 +683,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="axiba的小屋">
     </span>
 
     
@@ -520,7 +837,7 @@
             
               <a href="/archives">
             
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
